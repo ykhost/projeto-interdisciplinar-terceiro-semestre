@@ -1,5 +1,5 @@
 package model;
-
+ 
 public class Aluno extends Usuario{
 
 	private String ra;

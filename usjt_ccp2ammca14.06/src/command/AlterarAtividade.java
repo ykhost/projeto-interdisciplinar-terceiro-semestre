@@ -1,5 +1,5 @@
 package command;
-
+//Classe que executa a alteração da atividade selecionada.
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
