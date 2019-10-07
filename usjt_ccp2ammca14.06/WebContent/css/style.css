@@ -1,0 +1,74 @@
+@charset "UTF-8";
+body{
+	background-image: url("../images/usjt.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+
+}
+
+#login{
+	font-size: 25px;
+}
+#formulario{
+	 height: 100%;
+	 margin: auto;
+	 margin-top: 5%;
+	 border:thin 1px;
+	 border-radius:0.2em;
+	 border-color: black;
+	 background-color: rgb(220,220,220);
+}
+
+#formularioAluno{
+	 height: 100%;
+	 margin: auto;
+	 border:thin 1px;
+	 border-radius:0.2em;
+	 border-color: black;
+	 background-color: rgb(240,240,240);
+
+ 
+}
+.textoHome{
+	margin:auto;
+}
+
+#formularioAlunoTurma{
+	 min-height:100%;
+	 margin: auto;
+	 border:thin 1px;
+	 border-radius:0.2em;
+	 border-color: black;
+	 background-color: rgb(240,240,240);
+ 
+}
+.rodape a{
+	font-size: 15.5px;
+	cursor: pointer;
+}
+.page-header{
+  	margin: 20px 0 20px;
+  	font-size: 45px;
+  	color: rgb(235,235,235);
+  	text-align: center;
+}
+
+
+#botoes a{
+	width:100px;
+}
+#botoes button{
+	width:100px;
+}
+
+.listBox{
+	min-height:320px;
+	font-size:18px;
+}
+#seta{
+	width:100px;
+	height:70px;
+}
