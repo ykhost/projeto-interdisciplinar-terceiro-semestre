@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 
 
-
+//Metodo para realizar a conexão com o banco de dados
 public class ConnectionFactory {
 	private static String usuario = "root", senha = "1337",stringConexao = "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC";
 	static {

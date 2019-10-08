@@ -11,6 +11,7 @@ import model.Atividade;
 
 
 public class AtividadeDAO {
+	//Metodo para inserir uma atividade no banco de dados, onde temaID deve ser existente para ocorrer erros.  
 	public int inserir (Atividade atividade) throws SQLException {
 		String sqlInsert = "INSERT INTO Atividade(tema_id,descricao, formato_entrega, numero, dt_inicio, dt_fim) VALUES (?, ?, ?, ?, ?,?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
@@ -38,6 +39,7 @@ public class AtividadeDAO {
 		return atividade.getId();
 	}
 	
+	//Metodo para excluir uma atividade existente pelo id.
 	public int excluir(Atividade atividade) {
 		String sqlDelete = "DELETE FROM Atividade WHERE id= ?";
 		try (Connection conn = ConnectionFactory.getConnection();
@@ -51,6 +53,7 @@ public class AtividadeDAO {
 
 	}
 	
+	//Metodo para atualizar atividade a partir do id.
 	public Atividade atualizar(Atividade atividade) {
 		String sqlUpdate = "UPDATE Atividade set  tema_id=?, descricao=?, formato_entrega=?, numero=?, dt_inicio=?, dt_fim=? WHERE id=?";
 		try (Connection conn = ConnectionFactory.getConnection();
@@ -71,6 +74,7 @@ public class AtividadeDAO {
 
 	}
 	
+	//Metodo para carregar todas as atividades.
 	public Atividade carregar(int id) {
 		Atividade atividade=new Atividade();
 		atividade.setId(id);
@@ -106,6 +110,7 @@ public class AtividadeDAO {
 		return atividade;
 	}
 	
+	//Metodo para listar todas as atividades.
 	public ArrayList<Atividade> listarTodos(String chave) {
 		Atividade atividade;
 		ArrayList<Atividade> lista = new ArrayList<>();
@@ -136,6 +141,7 @@ public class AtividadeDAO {
 		return lista;
 	}
 	
+	//Metodo para listar as atividades a partir da chave de busca inserida pelo usuario.
 	public ArrayList<Atividade> listarTodos() {
 		Atividade atividade;
 		ArrayList<Atividade> lista = new ArrayList<>();

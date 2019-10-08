@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import model.Turma;
 
 public class TurmaDAO {
-	
+	//Metodo para inserir turma ao banco de dados
 	public int inserir (Turma turma) throws SQLException {
 		String sqlInsert = "INSERT INTO Turma(sigla, ano_letivo,semestre_letivo,tema_id) VALUES (?, ?,?,?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
@@ -34,7 +34,7 @@ public class TurmaDAO {
 		}
 		return turma.getId();
 	}
-	
+	//Metodo para deletar turma atraves do id.
 	public int deletar (Turma turma) throws SQLException {
 		try (Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement ps = conn.prepareStatement("DELETE FROM Turma WHERE id = ?");){
@@ -45,7 +45,7 @@ public class TurmaDAO {
 				}
 		return turma.getId();
 	}
-	
+	//Metodo para atualizar turma atraves do id
 	public Turma atualizar (Turma turma) throws SQLException {
 		try (Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement ps = conn.prepareStatement("UPDATE Turma SET sigla=?, ano_letivo=?,semestre_letivo=?, tema_id=? WHERE id = ?");){
@@ -60,7 +60,7 @@ public class TurmaDAO {
 				}
 		return turma;
 	}
-	
+	//Metodo para listar todas as turmas
 	public Turma carregar(int id) {
 		Turma turma=new Turma();
 		turma.setId(id);
@@ -92,7 +92,7 @@ public class TurmaDAO {
 		}
 		return turma;
 	}
-	
+	//Metodo para pesquisar turmas atraves de uma chave de busca
 	public ArrayList<Turma> listarTodos(String chave) {
 		Turma turma= new Turma();
 		
@@ -122,7 +122,7 @@ public class TurmaDAO {
 		return lista;
 	
 	}
-	
+	//Metodo para listar todas a turmas em uma ArrayList
 	public ArrayList<Turma> listarTodos() {
 		Turma turma= new Turma();
 		

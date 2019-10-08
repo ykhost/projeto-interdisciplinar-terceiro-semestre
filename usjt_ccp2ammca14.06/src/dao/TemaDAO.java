@@ -11,6 +11,8 @@ import model.Tema;
 
 
 public class TemaDAO {
+	
+	//Metodo para inserir tema no banco de dados.
 	public int inserir (Tema tema){
 		String sqlInsert = "INSERT INTO Tema(dt_cadastro, titulo, introducao, requisitos) VALUES (?, ?, ?, ?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
@@ -36,6 +38,7 @@ public class TemaDAO {
 		return tema.getId();
 	}
 	
+	//Metodo para deletar tema atraves do id.
 	public void deletar (int id){
 		try (Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement ps = conn.prepareStatement("DELETE FROM Turma WHERE id = ?");){
@@ -45,6 +48,8 @@ public class TemaDAO {
 					e.printStackTrace();
 				}
 	}
+	
+	//Metodo para atualizar tema utilizando o id como chave.
 	public Tema atualizar(Tema tema) {
 		String sqlUpdate = "UPDATE Tema set titulo=?, introducao=?, requisitos=? WHERE id=?";
 		try (Connection conn = ConnectionFactory.getConnection();
@@ -62,6 +67,7 @@ public class TemaDAO {
 
 	}
 	
+	//Metodo para carregar todos os temas
 	public Tema carregar(int id) {
 		Tema tema= new Tema();
 		tema.setId(id);
@@ -95,6 +101,7 @@ public class TemaDAO {
 		return tema;
 	}
 	
+	//Metodo listar todos os metos atraves de uma chave de busca.
 	public ArrayList<Tema> listarTodos(String chave) {
 		Tema tema= new Tema();
 		ArrayList<Tema> lista = new ArrayList <> ();
@@ -121,7 +128,7 @@ public class TemaDAO {
 		}
 		return lista;
 	}
-	
+	//Metodo para listar todos os temas em uma arraylist
 	public ArrayList<Tema> listarTodos() {
 		Tema tema= new Tema();
 		ArrayList<Tema> lista = new ArrayList <> ();

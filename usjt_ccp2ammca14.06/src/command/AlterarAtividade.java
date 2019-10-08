@@ -19,7 +19,9 @@ import service.TemaService;
 public class AlterarAtividade implements ServletDeflector {
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	@Override
+	
 	public String executar(HttpServletRequest request, HttpServletResponse response){
+		//Pegando as requisições do usuario
 		String pId = request.getParameter("id");
 		String pTemaId = request.getParameter("tema_id");
 		String pAtvDescricao = request.getParameter("atvDescricao");
@@ -51,7 +53,7 @@ public class AlterarAtividade implements ServletDeflector {
 			
 			e1.printStackTrace();
 		}
-		
+		//Inserindo os dados no model
 		Atividade atividade= new Atividade();
 		Tema      tema     =new Tema();
 		atividade.setId(id);
@@ -61,7 +63,7 @@ public class AlterarAtividade implements ServletDeflector {
 		atividade.setAtv_numero(atv_numero);
 		atividade.setDataInicio(dateAux);
 		atividade.setDataFinal(dateCon);
-		
+		//Instanciar as classe atividades service e tema service
 		AtividadeService ps = new AtividadeService();
 		TemaService      ts = new TemaService();
 		try
@@ -81,7 +83,7 @@ public class AlterarAtividade implements ServletDeflector {
 			e.printStackTrace();
 		}
 		@SuppressWarnings("unchecked")
-		
+		//ArrayList para armazenar as atividades em uma lista para ser reutilizado na proxima interface.
 		ArrayList<Atividade> lista = (ArrayList<Atividade>) session
 				.getAttribute("lista");
 		lista.add(atividade);

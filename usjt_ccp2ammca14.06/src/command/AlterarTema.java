@@ -16,13 +16,13 @@ import service.TemaService;
 
 public class AlterarTema implements ServletDeflector{
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+	//Metodo para alterar tema atraves dos dados inseridos pelo usuario
 	@Override
 	public String executar(HttpServletRequest request, HttpServletResponse response)
 	{
 		Tema		tema	=	new	Tema();
 		TemaService	ps		=	new	TemaService();
-		
+		//guardando os dados inseridos pelo usuario em Strings
 		String	pId			=	request.getParameter("id");
 		String	pTitulo		=	request.getParameter("titulo");
 		String	pIntroducao	=	request.getParameter("introducao");

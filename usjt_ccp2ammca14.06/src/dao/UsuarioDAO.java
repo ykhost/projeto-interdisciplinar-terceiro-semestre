@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import model.Usuario;
 
 public class UsuarioDAO {
-
+	//Metodo para inserir usuario.
 	public int inserir(Usuario user) {
 		try {
 			Connection conn = ConnectionFactory.getConnection();
@@ -35,7 +35,7 @@ public class UsuarioDAO {
 		
 		return user.getId();
 	}
-	
+	//Metodo para atualizar dados do usuario
 	public void atualizar(Usuario user) {
 		String sqlUpdate = "UPDATE usuario SET nome=?, email=?, senha=? WHERE id=?";
 		
@@ -50,7 +50,7 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	//Metodo para excluir um usuario
 	public void excluir(int codigoInt) {
 		String sqlUpdate = "DELETE FROM usuario WHERE usuario_id = ?";
 		
@@ -62,7 +62,7 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	//Metodo para carregar todos os usuarios
 	public Usuario carregar(int id) {
 		Usuario user = new Usuario();
 		user.setId(id);
@@ -85,6 +85,7 @@ public class UsuarioDAO {
 		}
 		return user;
 	}
+	//Metodo para carregar os identificadores dos professores
 	public int carregarIdentificadorProfessor() {
 		Usuario usuario = new Usuario();
 		String sqlSelect = "select us.identificador, us.id, pf.professor_id from Usuario us\r\n" + 
@@ -104,7 +105,7 @@ public class UsuarioDAO {
 		}
 		return usuario.getIdentificador();
 	}
-	
+	//Metodo para carregar todos os identificadores dos alunos
 	public int carregarIdentificadorAluno() {
 		Usuario usuario = new Usuario();
 		String sqlSelect = "select us.identificador, us.id, a.aluno_id from Usuario us\r\n" + 
@@ -148,7 +149,7 @@ public class UsuarioDAO {
 		return false;
 		
 	}
-	
+	//Metodo para realizar a verificação para o login
 	public Usuario logar(String email, String password) {
 		Usuario usuario = new Usuario();
 		String sql = "Select * from Usuario Where email = ? and senha = ?";
@@ -179,29 +180,5 @@ public class UsuarioDAO {
 		}	
 		
 	}
-	
-	public boolean LoginProfessor(String email, String senha) {
-		String sql="select email, senha from usuario " + 
-				"inner join professor " + 
-				"on professor.professor_id=usuario.id " + 
-				"where email= ? and senha = ?";
-				boolean check = false;
-		try(Connection conn = ConnectionFactory.getConnection();
-				PreparedStatement stm=conn.prepareStatement(sql)){
-				stm.setString(1, email);
-				stm.setString(2, senha);
-				
-				try(ResultSet rs = stm.executeQuery()){
-					if(rs.next()) {
-						check = true;
-					}					
-				}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return check;
-		
-	}
-
 
 }

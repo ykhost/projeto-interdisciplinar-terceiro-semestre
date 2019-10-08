@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ProfessorDAO {
+	//Metodo para listar todos os professores.
 	public List<Professor> carregarTodosProf() {
 		
 		List<Professor> listaProfessores = new ArrayList<>();
